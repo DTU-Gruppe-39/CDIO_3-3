@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	
+<link rel="stylesheet" type="text/css" href="Stylish.css">
+<script type="text/javascript" src="jquery-3.3.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+	$(function() { // Sikrer sig at dokumentet er indlæst, 
+		// før click handlers håndteres
+		$('#hellobutton').click(function() { //Sætter en click handler på knappen
+			$.ajax({ //Indleder et asynkront ajax kald
+				url : 'rest/hello', //specificerer endpointet
+				type : 'POST', //Typen af HTTP requestet (GET er default)
+				data: $('#id').val(), 
+				contentType : 'text/plain',
+			success : function(data) {//Funktion der skal udføres når data er hentet
+					$('#mydiv').html(data); //Manipulerer #mydiv.
+
+				}
+			});
+			return false; //for at undgå at knappen poster data (default behavior).
+		});
+	});
+</script>
+
+</head>
+
+<body>
+<!-- 
+	<button id="hellobutton">Hello</button>
+	<input type = "texst" id = "navn" value = "navn">
+	<div id="mydiv">Tryk på knappen for at skifte teksten</div> -->
+
+
+<div class = "divOpret">
+
+<form action ="Adminstration.html" method="post">
+<h1> <b> <center> Opret bruger </center></b> </h1>
+
+<center> BrugerID:  <input type = "text" name = "ID" required="required"  pattern="[0-9.]+"> </center><br>
+<center> Brugernavn <input type = "text" name = "Brugernavn" required="required" pattern="[a-åA-Å]*" ></center><br>
+<center> Initial    <input  type = "text" name = "ini" required="required" ></center><br>
+<center> CPR-nr  	<input  type = "text" name = "CPR" required="required" ></center><br>
+
+<center><select id = rolle required="required">
+<option value =""> Vælg rolle </option> 
+<option value="Admin">Admin</option>
+<option value="Pharmacist">Pharmacist</option>
+<option value="Produktionsleder">Produktionsleder</option>
+<option value="Laborant">Laborant</option>
+</select></center><br>
+
+<center><input type = "submit" value = "Opret"></center>
+</form>
+</div>
+
+</body>
+
+</html>

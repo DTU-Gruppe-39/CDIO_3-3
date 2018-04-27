@@ -59,7 +59,9 @@ tr:nth-of-type(even) {
 
 img{
 float: left;
+  position: absolute;
 }
+
 
 ul{
   list-style-type: none;

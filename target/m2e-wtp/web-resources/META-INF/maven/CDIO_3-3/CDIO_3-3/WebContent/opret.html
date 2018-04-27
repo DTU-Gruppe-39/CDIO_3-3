@@ -12,9 +12,9 @@
 <script>
 	$(function() { // Sikrer sig at dokumentet er indlæst, 
 		// før click handlers håndteres
-		$('#hellobutton').click(function() { //Sætter en click handler på knappen
+		$('#submit').click(function() { //Sætter en click handler på knappen
 			$.ajax({ //Indleder et asynkront ajax kald
-				url : 'rest/hello', //specificerer endpointet
+				url : 'front/query', //specificerer endpointet
 				type : 'POST', //Typen af HTTP requestet (GET er default)
 				data: $('#id').val(), 
 				contentType : 'text/plain',
@@ -42,7 +42,7 @@
 <img src="http://www.dtu.dk/english/-/media/DTU-endk/About%20DTU/PRESS_ROOM/DTU-3.ashx?h=237&la=da&mw=460&w=162"
     alt="http://www.dtu.dk/english/About/PRESS-ROOM/Photos-and-Multimedia/DTU-logo" width="90" height="125">
   </img> -->
-<form action ="Adminstration.html" method="post">
+<form action ="" method="post">
 <h1> <b> <center> Opret bruger </center></b> </h1>
 
 <center>BrugerID:</center>  <center><input type = "text" name = "ID"  required  pattern="[0-9.]+"> </center><br>

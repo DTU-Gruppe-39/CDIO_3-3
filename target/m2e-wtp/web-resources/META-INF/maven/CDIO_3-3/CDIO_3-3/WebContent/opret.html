@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="Stylish.css">
 <script type="text/javascript" src="jquery-3.3.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery.jquery.serialize-object.js"> </script>
 
 <script>
 	$(function() { // Sikrer sig at dokumentet er indlæst, 
@@ -24,8 +25,21 @@
 				}
 			});
 			return false; //For at undgå at knappen poster data (default behavior).
+			
+			
+			
+
 		});
+
 	});
+	
+/* 	var myObj, x;
+	myObj = { "name":"John", "age":30, "car":null };
+	x = myObj.name;
+	document.getElementById("demo").innerHTML = x; */
+
+
+    
 </script>
 
 </head>
@@ -36,19 +50,22 @@
 	<input type = "texst" id = "navn" value = "navn">
 	<div id="mydiv">Tryk på knappen for at skifte teksten</div> -->
 
+<p id = "demo"></p><br>
+<input type="text" id="myText" value="Some text...">
+<button onclick="myFunction()">Try it</button>
 
 <div class = "divOpret">
 <!--   <img>
 <img src="http://www.dtu.dk/english/-/media/DTU-endk/About%20DTU/PRESS_ROOM/DTU-3.ashx?h=237&la=da&mw=460&w=162"
     alt="http://www.dtu.dk/english/About/PRESS-ROOM/Photos-and-Multimedia/DTU-logo" width="90" height="125">
   </img> -->
-<form action ="" method="post">
+<form action ="" method="post" form enctype='application/json' onclick="myFunction()">
 <h1> <b> <center> Opret bruger </center></b> </h1>
 
-<center>BrugerID:</center>  <center><input type = "text" name = "ID"  required  pattern="[0-9.]+"> </center><br>
-<center>Brugernavn</center> <center><input type = "text" name = "Brugernavn" required="required" pattern="[a-åA-Å]*" ></center><br>
-<center> Initial </center>  <center><input  type = "text" name = "ini" required="required" ></center><br>
-<center>CPR-nr 	</center> 	<center><input  type = "text" name = "CPR" required="required" ></center><br>
+<center>BrugerID:</center>  <center><input type = "text" id = "ID"  required  pattern="[0-9.]+"> </center><br>
+<center>Brugernavn</center> <center><input type = "text" id = "Brugernavn" required="required" pattern="[a-åA-Å]*" ></center><br>
+<center> Initial </center>  <center><input  type = "text" id = "ini" required="required" ></center><br>
+<center>CPR-nr 	</center> 	<center><input  type = "text" id = "CPR" required="required" ></center><br>
 
 <center><select id = rolle required="required">
 <option value =""> Vælg rolle </option> 
@@ -63,5 +80,18 @@
 </div>
 
 </body>
-
+<script>
+			function myFunction() {
+				var id = document.getElementById("ID").value;  
+				var navn = document.getElementById("Brugernavn").value
+				var ini = document.getElementById("ini").value
+				var cpr = document.getElementById("CPR").value 
+				
+				var soren = { "ID": id, "Brugernavn" : "Søren", "Initial" : "Srn", "CPR" : 10204920 }
+			    document.getElementById("demo").innerHTML = id;
+				document.getElementById("demo").innerHTML += " " + navn;
+				document.getElementById("demo").innerHTML += " " + ini;
+				document.getElementById("demo").innerHTML += " " + cpr;
+				}
+			</script>
 </html>
